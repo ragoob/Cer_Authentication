@@ -90,4 +90,3 @@ C:\Users\mohamed.ragab\source\repos\my-secured-app\my-secured-app\bin\Debug\netc
 C:\Users\mohamed.ragab\source\repos\my-secured-app\my-secured-app\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\mohamed.ragab\source\repos\my-secured-app\my-secured-app\obj\Debug\netcoreapp3.1\my-secured-app.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\mohamed.ragab\source\repos\my-secured-app\my-secured-app\obj\Debug\netcoreapp3.1\my-secured-app.csproj.CopyComplete
-C:\Users\mohamed.ragab\source\repos\my-secured-app\my-secured-app\obj\Debug\netcoreapp3.1\my-secured-app.csprojAssemblyReference.cache
