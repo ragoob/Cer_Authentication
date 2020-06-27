@@ -12,8 +12,18 @@ namespace my_secured_app.Controllers
     public class HelthcheckController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> GetAsync()
         {
+            var Cert = await HttpContext.Connection.GetClientCertificateAsync();
+            if (Cert != null)
+            {
+                Console.WriteLine(Cert.SubjectName.Name);
+
+            }
+            else
+            {
+                Console.WriteLine("No Cert Recived to server")
+            }
             return Ok(new { 
             appName = "my-secured-app",
             appVersion = "1.0"
