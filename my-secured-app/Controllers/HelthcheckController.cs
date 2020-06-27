@@ -22,7 +22,7 @@ namespace my_secured_app.Controllers
             }
             else
             {
-                Console.WriteLine("No Cert Recived to server")
+                Console.WriteLine("No Cert Recived to server");
             }
             return Ok(new { 
             appName = "my-secured-app",
