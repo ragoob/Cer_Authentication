@@ -20,4 +20,5 @@ RUN dotnet publish "my-secured-app.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY ExternalCert.pem /etc/ssl/certs/ExternalCert.pem
 ENTRYPOINT ["dotnet", "my-secured-app.dll"]
