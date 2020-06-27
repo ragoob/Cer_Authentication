@@ -14,7 +14,10 @@ namespace my_secured_app.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("The app is helthy");
+            return Ok(new { 
+            appName = "my-secured-app",
+            appVersion = "1.0"
+            });
         }
     }
 }
