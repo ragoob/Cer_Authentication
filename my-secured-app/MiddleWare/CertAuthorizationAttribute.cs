@@ -15,10 +15,7 @@ namespace my_secured_app.MiddleWare
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
             var clientCert = await context.HttpContext.Connection.GetClientCertificateAsync();
-            if (clientCert.SubjectName.Name != "CN=client_2, C=EG")
-            {
-                context.Result = new UnauthorizedResult();
-            }
+            
         }
 
       
