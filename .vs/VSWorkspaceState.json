@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\my-secured-app",
+    "\\my-secured-app\\Controllers",
+    "\\my-secured-app\\MiddleWare"
+  ],
+  "SelectedNode": "\\my-secured-app\\MiddleWare\\CertAuthorizationAttribute.cs",
+  "PreviewInSolutionExplorer": false
+}

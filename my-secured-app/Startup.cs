@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Certificate;
@@ -33,12 +34,10 @@ namespace my_secured_app
                 CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate(options =>
                 {
-                    if (Debugger.IsAttached)
-                    {
-                        options.RevocationMode = X509RevocationMode.NoCheck;
-                     
-                    }
-
+                    options.RevocationMode = X509RevocationMode.NoCheck;
+                    options.ValidateCertificateUse = false;
+                    options.ValidateValidityPeriod = false;
+                  
                     options.Events = new CertificateAuthenticationEvents
                     {
                         OnCertificateValidated = context =>
@@ -61,6 +60,9 @@ namespace my_secured_app
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
