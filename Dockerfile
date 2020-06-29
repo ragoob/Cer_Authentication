@@ -20,7 +20,6 @@ RUN dotnet publish "my-secured-app.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY mycerts.crt /usr/share/ca-certificates/mycerts.crt
-RUN echo "mycerts.crt" >> /etc/ca-certificates.conf && update-ca-certificates
+
 
 ENTRYPOINT ["dotnet", "my-secured-app.dll"]

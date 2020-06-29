@@ -35,9 +35,6 @@ namespace my_secured_app
                 .AddCertificate(options =>
                 {
                     options.RevocationMode = X509RevocationMode.NoCheck;
-                    options.ValidateCertificateUse = false;
-                    options.ValidateValidityPeriod = false;
-                  
                     options.Events = new CertificateAuthenticationEvents
                     {
                         OnCertificateValidated = context =>
@@ -60,7 +57,6 @@ namespace my_secured_app
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            ServicePointManager.ServerCertificateValidationCallback += (o, c, ch, er) => true;
 
 
             if (env.IsDevelopment())
