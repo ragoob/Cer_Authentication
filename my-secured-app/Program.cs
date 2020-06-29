@@ -53,7 +53,7 @@ namespace my_secured_app
                     {
                         o.ConfigureHttpsDefaults(o =>
                             o.ClientCertificateMode =
-                                ClientCertificateMode.RequireCertificate);
+                                ClientCertificateMode.AllowCertificate);
                     }).UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
                        .ReadFrom.Configuration(hostingContext.Configuration)
                        .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
