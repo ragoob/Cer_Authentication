@@ -4,7 +4,11 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=https://+:443;http://+:80
+ENV ASPNETCORE_Kestrel__Certificates__Default__Password=1234
+ENV ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+COPY ~/.aspnet/https/aspnetapp.pfx /https/aspnetapp.pfx
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["my-secured-app/my-secured-app.csproj", "my-secured-app/"]
